@@ -4,27 +4,54 @@ import Todolist from "./TodoList";
 import ActionsComponent from "./ActionsComponent";
 import { arrayExpression } from "@babel/types";
 class TodoContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todoarray: []
+    };
+  }
+  idCount = 0;
+
   textField = msg => {
     var todomsg = msg;
-    console.log("msg");
-  };
-  creationOfObj = (count, todoarray) => {
+    // console.log(todomsg);
     var obj = {};
-    (obj.id = count), (obj.msg = todomsg), (obj.active = true);
-    todoarray.push(obj);
-    console.log(todoarray);
+    obj.id = this.idCount++;
+    obj.msg = todomsg;
+    obj.active = true;
+    this.setState({
+      todoarray: [obj].concat(this.state.todoarray)
+    });
+    // console.log(this.state.todoarray);
+  };
+
+  changedarrayfun = (input, id) => {
+    var array = [];
+    console.log(" this in todocontainer");
+    console.log(input);
+    console.log(id);
+    var reqindex = this.state.todoarray.findIndex(function(obj, index) {
+      return obj.id === id;
+    });
+    console.log(" the required id");
+    console.log(reqindex);
+
+    array = this.state.todoarray;
+    array[reqindex].msg = input;
+    this.setState({
+      todoarray: array
+    });
   };
 
   render() {
-    const count = 0;
-    var todoarray = [];
-
     return (
       <div>
-        var todomsg =<AddTodo ontodotext={this.textField} />
-        <Todolist />
+        <AddTodo ontodotext={this.textField} />
+        <Todolist
+          array={this.state.todoarray}
+          changedarray={this.changedarrayfun}
+        />
         <ActionsComponent />
-        {this.creationOfObj(count++, todoarray)}
       </div>
     );
   }
