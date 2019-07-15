@@ -1,0 +1,10 @@
+.boxstyles {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  border: solid black 2px;
+}
+.imagestyles {
+  height: 20px;
+  width: 20px;
+}
