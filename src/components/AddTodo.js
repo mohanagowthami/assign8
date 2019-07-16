@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./styles.css";
 class AddTodo extends Component {
   constructor(props) {
     super(props);
@@ -12,23 +12,36 @@ class AddTodo extends Component {
       inputMsg: event.target.value
     });
   };
-  onSubmit = props => {
-    this.props.onAddTodo(this.state.inputMsg);
-    this.setState({
-      inputMsg: " "
-    });
+
+  onSubmit = event => {
+    if (event.keyCode === 13) {
+      console.log(this.state.inputMsg);
+      if (this.state.inputMsg !== " ") {
+        this.props.onAddTodo(this.state.inputMsg);
+      }
+      this.setState({
+        inputMsg: " "
+      });
+    }
   };
 
   render() {
+    var style = {
+      height: 85
+    };
     return (
-      <div>
-        <input
-          type="text"
-          onChange={this.handleChange}
-          placeholder="eneter the todo "
-          value={this.state.inputMsg}
-        />
-        <button onClick={this.onSubmit}> Submit</button>
+      <div className="boxstyles">
+        <div className="inputboxstyles">
+          <input
+            style={style}
+            type="text"
+            onChange={this.handleChange}
+            placeholder="enter the todo"
+            value={this.state.inputMsg}
+            size="100"
+            onKeyDown={this.onSubmit}
+          />
+        </div>
       </div>
     );
   }

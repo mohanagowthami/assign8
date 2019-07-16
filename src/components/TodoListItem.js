@@ -26,11 +26,12 @@ class TodoListItem extends Component {
     this.setState({
       variable: !this.state.variable
     });
+
     this.props.onUpdateTodo(this.state.inputMsg, this.id);
   };
   renderInputBox = () => {
     var a = (
-      <div>
+      <div className="inputboxstyles">
         <input
           type="text"
           onChange={this.handleChange}
@@ -42,6 +43,7 @@ class TodoListItem extends Component {
     return a;
   };
   renderText = () => {
+    console.log(" this is in todolistitem", this.state.inputMsg);
     var k = (
       <div>
         {this.props.obj.active ? (
@@ -61,7 +63,8 @@ class TodoListItem extends Component {
     this.props.onInActive(this.id);
   };
   onRemoveItem = () => {
-    this.props.onRemoveItem(this.id);
+    var bol = window.confirm(" is it ok, to delete a todo item ");
+    if (bol) this.props.onRemoveItem(this.id);
   };
   render() {
     return (
@@ -73,6 +76,7 @@ class TodoListItem extends Component {
             checked={!this.props.obj.active}
           />
           {this.state.variable ? this.renderText() : this.renderInputBox()}
+
           <img
             className="imagestyles"
             src="assets/crossimg.png"

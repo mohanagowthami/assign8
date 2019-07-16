@@ -1,10 +1,52 @@
 .boxstyles {
   display: flex;
   flex-direction: row;
-  height: 80px;
-  border: solid black 2px;
+  height: 100px;
+  border: black 1px;
 }
 .imagestyles {
   height: 20px;
   width: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.inputboxstyles {
+  text-align: center;
+}
+.submitstyles {
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  background-color: white;
+}
+.boxshadow {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 100%;
+}
+.buttonsCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.actionsStyles {
+  display: flex;
+  flex-direction: row;
+}
+.buttonRight {
+  display: flex;
+  flex-direction: row-reverse;
 }

@@ -16,10 +16,13 @@ class ActionsComponent extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.onSubmitAll}>ALL</button>
-        <button onClick={this.onSubmitActive}> ACTIVE</button>
-        <button onClick={this.onSubmitCompleted}> COMPLETED</button>
+      <div className="actionsStyles">
+        {this.props.items} items left
+        <div className="buttonsCenter">
+          <button onClick={this.onSubmitAll}>ALL</button>
+          <button onClick={this.onSubmitActive}> ACTIVE</button>
+          <button onClick={this.onSubmitCompleted}> COMPLETED</button>
+        </div>
         <button onClick={this.onSubmitClearCompleted}> CLEARCOMPLETED</button>
       </div>
     );

@@ -4,6 +4,7 @@ import Todolist from "./TodoList";
 import ActionsComponent from "./ActionsComponent";
 import { arrayExpression } from "@babel/types";
 import todoListTypeConstants from "./constants";
+import "./styles.css";
 class TodoContainer extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class TodoContainer extends Component {
   }
   idCount = 0;
   onUpdateAddTodo = msg => {
+    console.log("the msg is", msg);
     var todoMsg = msg;
     var obj = {};
     obj.id = this.idCount++;
@@ -88,6 +90,7 @@ class TodoContainer extends Component {
       return array;
     } else {
       array = this.state.todoArray;
+      console.log(" value in todo array ", this.state.todoArray);
       this.items = array.length;
       return array;
     }
@@ -95,18 +98,21 @@ class TodoContainer extends Component {
   render() {
     const todoList = this.getTodoList();
     return (
-      <div>
-        <AddTodo onAddTodo={this.onUpdateAddTodo} />
-        <Todolist
-          todoArray={todoList}
-          onUpdateTodo={this.onUpdateTodo}
-          onInActive={this.onInActive}
-          onRemoveItem={this.onRemoveItem}
-        />
-        <ActionsComponent
-          onTodoStateUpdate={this.onTodoStateUpdate}
-          onClearCompleted={this.onClearCompleted}
-        />
+      <div className="layout">
+        <div className="boxshadow">
+          <AddTodo onAddTodo={this.onUpdateAddTodo} />
+          <Todolist
+            todoArray={todoList}
+            onUpdateTodo={this.onUpdateTodo}
+            onInActive={this.onInActive}
+            onRemoveItem={this.onRemoveItem}
+          />
+          <ActionsComponent
+            onTodoStateUpdate={this.onTodoStateUpdate}
+            onClearCompleted={this.onClearCompleted}
+            items={this.items}
+          />
+        </div>
       </div>
     );
   }
