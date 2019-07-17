@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AddTodo from "./AddTodo";
 import Todolist from "./TodoList";
 import ActionsComponent from "./ActionsComponent";
-import { arrayExpression } from "@babel/types";
 import todoListTypeConstants from "./constants";
 import "./styles.css";
 class TodoContainer extends Component {
@@ -10,7 +9,7 @@ class TodoContainer extends Component {
     super(props);
     this.state = {
       todoArray: [],
-      type: " "
+      type: todoListTypeConstants.all
     };
   }
   idCount = 0;
@@ -111,6 +110,7 @@ class TodoContainer extends Component {
             onTodoStateUpdate={this.onTodoStateUpdate}
             onClearCompleted={this.onClearCompleted}
             items={this.items}
+            type={this.state.type}
           />
         </div>
       </div>

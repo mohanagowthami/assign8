@@ -31,13 +31,20 @@ class TodoListItem extends Component {
   };
   renderInputBox = () => {
     var a = (
-      <div className="inputboxstyles">
+      <div className="parentInputBoxStyles">
         <input
+          className="inputBoxStyles"
           type="text"
           onChange={this.handleChange}
           value={this.state.inputMsg}
         />
-        <button onClick={this.submitCallTodoList}> update</button>
+
+        <div>
+          <button className="normal" onClick={this.submitCallTodoList}>
+            {" "}
+            update
+          </button>
+        </div>
       </div>
     );
     return a;
@@ -45,16 +52,24 @@ class TodoListItem extends Component {
   renderText = () => {
     console.log(" this is in todolistitem", this.state.inputMsg);
     var k = (
-      <div>
-        {this.props.obj.active ? (
-          this.state.inputMsg
-        ) : (
-          <p>
-            {" "}
-            <strike>{this.state.inputMsg}</strike>
-          </p>
-        )}
-        <button onClick={this.submit}> edit</button>
+      <div className="parentTextStyles">
+        <div className="textStyles">
+          {this.props.obj.active ? (
+            <p className="todoContentStyles"> {this.state.inputMsg}</p>
+          ) : (
+            <p>
+              {" "}
+              <strike className="strikeTodoContentStyles">
+                {this.state.inputMsg}
+              </strike>
+            </p>
+          )}
+        </div>
+
+        <button className="normal" onClick={this.submit}>
+          {" "}
+          edit
+        </button>
       </div>
     );
     return k;
@@ -67,22 +82,26 @@ class TodoListItem extends Component {
     if (bol) this.props.onRemoveItem(this.id);
   };
   render() {
+    const img = this.props.obj.active
+      ? "assets/uncheckbox.png"
+      : "assets/checkbox.png";
     return (
       <div>
         <div className="boxstyles">
-          <input
-            type="checkbox"
-            onChange={this.inActive}
-            checked={!this.props.obj.active}
-          />
-          {this.state.variable ? this.renderText() : this.renderInputBox()}
-
-          <img
-            className="imagestyles"
-            src="assets/crossimg.png"
-            alt="crossbutton"
-            onClick={this.onRemoveItem}
-          />
+          <div className="checkBoxStyles">
+            <img className="imagestyles" src={img} onClick={this.inActive} />
+          </div>
+          <div className="editStyles">
+            {this.state.variable ? this.renderText() : this.renderInputBox()}
+          </div>
+          <div className="crossButtonStyles">
+            <img
+              className="imagestyles"
+              src="assets/crossimg.png"
+              alt="crossbutton"
+              onClick={this.onRemoveItem}
+            />
+          </div>
         </div>
       </div>
     );

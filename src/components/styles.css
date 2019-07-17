@@ -3,17 +3,17 @@
   flex-direction: row;
   height: 100px;
   border: black 1px;
-}
-.imagestyles {
-  height: 20px;
-  width: 20px;
-  display: flex;
-  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
 }
-.inputboxstyles {
-  text-align: center;
+
+.imagestyles {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .submitstyles {
 }
@@ -35,18 +35,115 @@
   width: 100%;
   height: 100%;
 }
-.buttonsCenter {
+.todoStateUpdateStyles {
   display: flex;
-  flex-direction: row;
+
   justify-content: center;
-  align-items: center;
   flex: 1;
 }
 .actionsStyles {
   display: flex;
   flex-direction: row;
+  font-size: 14px;
+  color: #777777;
+  text-transform: none;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
 }
-.buttonRight {
+
+.selected {
+  border-color: rgba(175, 47, 47, 0.2);
+  padding: 10px;
+  color: #777777;
+  margin-left: 10px;
+  background: none;
+  outline: none;
+  outline: 0;
+  outline: none !important;
+  outline: transparent;
+}
+.normal {
+  background: none;
+  border: none;
+  color: #777777;
+  margin-left: 10px;
+}
+.clearCompletedStyles {
+  background: none;
+  border: none;
+  color: #777777;
+}
+.clearCompletedStyles:hover {
+  border-color: rgba(175, 47, 47, 0.2);
+  border-style: solid;
+  border-width: 2px;
+  text-transform: none;
+  color: #777777;
+  padding: 10px;
+  background: none;
+}
+button:active {
+  outline: 0;
+}
+.editStyles {
   display: flex;
-  flex-direction: row-reverse;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.textStyles {
+  display: flex;
+  flex: 1;
+}
+.checkBoxStyles {
+  margin-left: 10px;
+}
+.crossButtonStyles {
+  margin-right: 10px;
+}
+.parentTextStyles {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  flex: 1;
+  margin-right: 10px;
+  text-align: center;
+}
+.parentInputBoxStyles {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-right: 10px;
+  margin-left: 10px;
+  align-items: center;
+}
+.InputBoxStyles {
+  display: flex;
+  flex: 1;
+  font-size: 28px;
+  color: #4d4d4d;
+  height: 60px;
+}
+.todoContentStyles {
+  font-size: 24px;
+  color: #4d4d4d;
+}
+.strikeTodoContentStyles {
+  font-size: 24px;
+  color: #d9d9d9;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+.InputBoxStyles {
+  height: 100px;
+  width: 100%;
 }

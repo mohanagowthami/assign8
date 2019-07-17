@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import todoListTypeConstants from "./constants";
+import { tsParenthesizedType } from "@babel/types";
 class ActionsComponent extends Component {
   onSubmitAll = () => {
     this.props.onTodoStateUpdate(todoListTypeConstants.all);
@@ -10,20 +11,58 @@ class ActionsComponent extends Component {
   onSubmitCompleted = () => {
     this.props.onTodoStateUpdate(todoListTypeConstants.completed);
   };
+  styles = " ";
   onSubmitClearCompleted = () => {
     this.props.onClearCompleted();
   };
 
   render() {
+    const value = this.props.type;
+
     return (
       <div className="actionsStyles">
         {this.props.items} items left
-        <div className="buttonsCenter">
-          <button onClick={this.onSubmitAll}>ALL</button>
-          <button onClick={this.onSubmitActive}> ACTIVE</button>
-          <button onClick={this.onSubmitCompleted}> COMPLETED</button>
+        <div className="todoStateUpdateStyles">
+          <button
+            className={
+              this.props.type === todoListTypeConstants.all
+                ? "selected"
+                : "normal"
+            }
+            onClick={this.onSubmitAll}
+          >
+            All
+          </button>
+          <button
+            className={
+              this.props.type === todoListTypeConstants.active
+                ? "selected"
+                : "normal"
+            }
+            onClick={this.onSubmitActive}
+          >
+            {" "}
+            Active
+          </button>
+          <button
+            className={
+              this.props.type === todoListTypeConstants.completed
+                ? "selected"
+                : "normal"
+            }
+            onClick={this.onSubmitCompleted}
+          >
+            {" "}
+            Completed
+          </button>
         </div>
-        <button onClick={this.onSubmitClearCompleted}> CLEARCOMPLETED</button>
+        <button
+          className="clearCompletedStyles"
+          onClick={this.onSubmitClearCompleted}
+        >
+          {" "}
+          ClearCompleted
+        </button>
       </div>
     );
   }

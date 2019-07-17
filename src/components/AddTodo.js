@@ -36,7 +36,7 @@ class AddTodo extends Component {
             style={style}
             type="text"
             onChange={this.handleChange}
-            placeholder="enter the todo"
+            placeholder="Next Todo"
             value={this.state.inputMsg}
             size="100"
             onKeyDown={this.onSubmit}
