@@ -27,18 +27,27 @@ class AddTodo extends Component {
 
   render() {
     var style = {
-      height: 85
+      height: 65,
+      border: 0
     };
     return (
       <div className="boxstyles">
-        <div className="inputboxstyles">
+        <div>
+          <img
+            className="imagestyles"
+            src="assets/dropdown.png"
+            alt="dropdown"
+          />
+        </div>
+        <div>
           <input
+            className="outlineStyles"
             style={style}
             type="text"
             onChange={this.handleChange}
             placeholder="Next Todo"
             value={this.state.inputMsg}
-            size="100"
+            size="50"
             onKeyDown={this.onSubmit}
           />
         </div>

@@ -33,7 +33,7 @@ class TodoListItem extends Component {
     var a = (
       <div className="parentInputBoxStyles">
         <input
-          className="inputBoxStyles"
+          className="InputBoxStyles"
           type="text"
           onChange={this.handleChange}
           value={this.state.inputMsg}
@@ -86,8 +86,8 @@ class TodoListItem extends Component {
       ? "assets/uncheckbox.png"
       : "assets/checkbox.png";
     return (
-      <div>
-        <div className="boxstyles">
+      <div className="bottomBorder">
+        <div className="boxstyles" id="onHover">
           <div className="checkBoxStyles">
             <img className="imagestyles" src={img} onClick={this.inActive} />
           </div>
@@ -96,6 +96,7 @@ class TodoListItem extends Component {
           </div>
           <div className="crossButtonStyles">
             <img
+              id="showImg"
               className="imagestyles"
               src="assets/crossimg.png"
               alt="crossbutton"
@@ -103,6 +104,7 @@ class TodoListItem extends Component {
             />
           </div>
         </div>
+        <div className="bottomBorderStyles" />
       </div>
     );
   }
